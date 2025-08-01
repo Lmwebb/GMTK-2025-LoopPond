@@ -4,6 +4,7 @@ extends Node
 @onready var extra_time: Label = $"../ExtraTime"
 @onready var timer: Timer = $"../Timer"
 @onready var player: CharacterBody2D = get_node("/root/Game/Player")
+@onready var death: Label = $"../Death"
 
 var time = 10
 var seconds = 10
@@ -12,7 +13,6 @@ signal timer_done()
 func _ready() -> void:
 	GlobalTimer.timer += 10
 	time = GlobalTimer.timer
-	seconds +=  GlobalTimer.timer
 	timer.wait_time = time
 	GlobalTimer.timer = 0
 	timer.start()
@@ -20,9 +20,16 @@ func _ready() -> void:
 func _process(delta):
 	label.text = time_to_string()
 	extra_time.text = time_to_seconds()
+	death.text = show_death()
+	
+func show_death():
+	if GlobalTimer.death:
+		return "You Died!"
+	else:
+		return ""
 	
 func time_to_seconds():
-	seconds = GlobalTimer.timer
+	seconds = 10 + GlobalTimer.timer
 	var format_time_string = "Seconds Next Round : %02d"
 	var time_string = format_time_string % [seconds]
 	return time_string
