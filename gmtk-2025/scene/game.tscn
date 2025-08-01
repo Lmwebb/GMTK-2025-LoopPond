@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dtwck61s1f864"]
+[gd_scene load_steps=15 format=4 uid="uid://dtwck61s1f864"]
 
 [ext_resource type="Texture2D" uid="uid://hbhcpxxg6y04" path="res://assets/tileset/tileset16x16.png" id="1_5kiuu"]
 [ext_resource type="PackedScene" uid="uid://5k0x7a7lsn18" path="res://scene/clock.tscn" id="1_17rxn"]
@@ -236,7 +236,7 @@ tile_map_data = PackedByteArray("AAD8//3/AQABAAMAAAD8//7/AQABAAQAAAD8////AQAJAAU
 tile_set = SubResource("TileSet_33cqm")
 
 [node name="Player" parent="." instance=ExtResource("2_dbls1")]
-position = Vector2(-144, -24)
+position = Vector2(-140, -20)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(1, -23)
