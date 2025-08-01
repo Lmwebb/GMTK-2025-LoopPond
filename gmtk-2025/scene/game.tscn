@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=4 uid="uid://dtwck61s1f864"]
+[gd_scene load_steps=19 format=4 uid="uid://dtwck61s1f864"]
 
 [ext_resource type="Texture2D" uid="uid://hbhcpxxg6y04" path="res://assets/tileset/tileset16x16.png" id="1_5kiuu"]
 [ext_resource type="PackedScene" uid="uid://cqvkkqw7wvci4" path="res://scene/clock.tscn" id="1_17rxn"]
 [ext_resource type="Texture2D" uid="uid://ckhxs6u3wfq4x" path="res://assets/cave/tileset16x16.png" id="1_33cqm"]
+[ext_resource type="Script" uid="uid://exumenbma0xn" path="res://scripts/game.gd" id="1_ym5sv"]
 [ext_resource type="PackedScene" uid="uid://c075t1qmk0a7l" path="res://scene/player.tscn" id="2_dbls1"]
 [ext_resource type="PackedScene" uid="uid://crwpv1th0dlbv" path="res://scene/coin.tscn" id="3_p1ry8"]
 [ext_resource type="PackedScene" uid="uid://7jiw2mmhektb" path="res://scene/fire.tscn" id="3_qpk70"]
@@ -279,6 +280,7 @@ sources/2 = SubResource("TileSetAtlasSource_ym5sv")
 distance = -6.0
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_ym5sv")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
