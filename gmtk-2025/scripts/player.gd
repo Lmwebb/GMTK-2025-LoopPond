@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var checkpoint: Area2D = get_node("/root/Game/checkpoint")
+
 
 
 const SPEED = 100.0
@@ -14,7 +16,10 @@ func _ready():
 	initial_position = position
 
 func _reset_player():
-	position = initial_position
+	if GlobalTimer.checkpoint:
+		position = checkpoint.position
+	else:
+		position = initial_position
 	
 func _physics_process(delta: float) -> void:
 	
@@ -61,5 +66,5 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	
 	move_and_slide()

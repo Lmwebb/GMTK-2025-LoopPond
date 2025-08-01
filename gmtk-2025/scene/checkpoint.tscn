@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4c2v40f5j2fn"]
+
+[ext_resource type="Script" uid="uid://bwnm6c8a7qupn" path="res://scripts/checkpoint.gd" id="1_rsc5n"]
+[ext_resource type="Texture2D" uid="uid://ckhxs6u3wfq4x" path="res://assets/cave/tileset16x16.png" id="1_twgsb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rsc5n"]
+size = Vector2(16, 6)
+
+[node name="checkpoint" type="Area2D"]
+script = ExtResource("1_rsc5n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_twgsb")
+region_enabled = true
+region_rect = Rect2(305, 29, 14, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rsc5n")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
