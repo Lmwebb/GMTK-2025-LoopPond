@@ -1,14 +1,21 @@
 extends CharacterBody2D
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
 
 var glide_fall = 20
 var glide_state = false
+var initial_position: Vector2
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+func _ready():
+	initial_position = position
 
+func _reset_player():
+	position = initial_position
+	
 func _physics_process(delta: float) -> void:
 	
 	var direction := Input.get_axis("move_left", "move_right")
@@ -29,7 +36,6 @@ func _physics_process(delta: float) -> void:
 		
 	if glide_state == true:
 		velocity.y = glide_fall
-		
 		
 	# flip sprite
 	if direction > 0:

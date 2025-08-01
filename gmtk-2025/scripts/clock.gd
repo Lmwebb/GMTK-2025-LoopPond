@@ -2,19 +2,15 @@ extends Node
 
 @onready var label: Label = $"."
 @onready var timer: Timer = $"../Timer"
-@onready var player: CharacterBody2D = $Player
+@onready var player: CharacterBody2D = get_node("/root/Game/Player")
 
 var time = 10
 signal timer_done()
 
 func _ready() -> void:
-	print("GlobalTimer just before time", int(GlobalTimer.timer))
 	time += GlobalTimer.timer
-	print("this is time", time)
 	timer.wait_time = time
-	# Maybe change
 	GlobalTimer.timer = 0
-	print(timer.wait_time, "timer wait time")
 	timer.start()
 	
 func _process(delta):
@@ -32,7 +28,5 @@ func time_to_string() -> String:
 	return actual_string
 	
 func _on_timer_timeout() -> void:
-	get_tree().reload_current_scene()
-	#_ready()
-	#player.reset_position()
-	#emit_signal("Timer is done", timer_done)
+	_ready()
+	player._reset_player()
