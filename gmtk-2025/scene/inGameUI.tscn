@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://nte3b17j0r7f"]
+
+[ext_resource type="Script" path="res://scripts/inGameUI.gd" id="1_s3k51"]
+
+[node name="inGameUI" type="Control"]
+layout_mode = 3
+anchor_left = -0.556
+anchor_top = -0.556
+offset_left = 0.512085
+offset_top = 0.288025
+offset_bottom = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s3k51")
