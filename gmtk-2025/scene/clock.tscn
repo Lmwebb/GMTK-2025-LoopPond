@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqvkkqw7wvci4"]
+
+[ext_resource type="FontFile" uid="uid://ndemc3px6ael" path="res://assets/font/PixelStormMini.ttf" id="1_3eduw"]
+[ext_resource type="Script" uid="uid://dvqu0gsxvlj20" path="res://scripts/clock.gd" id="1_fybr8"]
+
+[node name="clock" type="Node"]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 24.0
+offset_right = 152.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("1_3eduw")
+theme_override_font_sizes/font_size = 64
+text = "00:00:000"
+script = ExtResource("1_fybr8")
+
+[connection signal="timeout" from="Timer" to="Label" method="_on_timer_timeout"]

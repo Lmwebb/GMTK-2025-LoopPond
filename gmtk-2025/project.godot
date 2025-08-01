@@ -15,6 +15,19 @@ run/main_scene="uid://dtwck61s1f864"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalTimer="*res://scripts/globalTimer.gd"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+[global_group]
+
+clock=""
+
 [input]
 
 jump={

@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=4 uid="uid://dtwck61s1f864"]
+[gd_scene load_steps=16 format=4 uid="uid://dtwck61s1f864"]
 
 [ext_resource type="Texture2D" uid="uid://hbhcpxxg6y04" path="res://assets/tileset/tileset16x16.png" id="1_5kiuu"]
+[ext_resource type="PackedScene" uid="uid://cqvkkqw7wvci4" path="res://scene/clock.tscn" id="1_17rxn"]
 [ext_resource type="Texture2D" uid="uid://ckhxs6u3wfq4x" path="res://assets/cave/tileset16x16.png" id="1_33cqm"]
 [ext_resource type="PackedScene" uid="uid://c075t1qmk0a7l" path="res://scene/player.tscn" id="2_dbls1"]
 [ext_resource type="PackedScene" uid="uid://crwpv1th0dlbv" path="res://scene/coin.tscn" id="3_p1ry8"]
@@ -211,6 +212,10 @@ sources/1 = SubResource("TileSetAtlasSource_xlg7c")
 distance = -6.0
 
 [node name="Game" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="clock" parent="CanvasLayer" instance=ExtResource("1_17rxn")]
 
 [node name="TileMap" type="Node2D" parent="."]
 
