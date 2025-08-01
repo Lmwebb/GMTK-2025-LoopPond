@@ -6,7 +6,7 @@ extends CharacterBody2D
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
 
-var glide_fall = 20
+var glide_fall = 50
 var glide_state = false
 var initial_position: Vector2
 
