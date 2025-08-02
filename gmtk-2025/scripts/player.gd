@@ -7,6 +7,7 @@ extends CharacterBody2D
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -280.0
+const BOUNCE_VELOCITY = -400.0
 
 var glide_fall = 50
 var glide_state = false
@@ -20,6 +21,13 @@ func _reset_player():
 		position = checkpoint.position
 	else:
 		position = initial_position
+
+func _player_bounce(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+	
+	velocity.y = BOUNCE_VELOCITY
 	
 func _physics_process(delta: float) -> void:
 	

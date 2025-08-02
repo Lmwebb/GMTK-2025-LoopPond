@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cegev3bjlu5ma"]
+
+[ext_resource type="Script" uid="uid://bjnnnwikm2xuo" path="res://scripts/mushroom.gd" id="1_fbdgr"]
+[ext_resource type="Texture2D" uid="uid://ckhxs6u3wfq4x" path="res://assets/cave/tileset16x16.png" id="2_fbdgr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbdgr"]
+size = Vector2(8, 6)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_adn01"]
+radius = 5.0
+
+[node name="mushroom" type="StaticBody2D"]
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_fbdgr")
+region_enabled = true
+region_rect = Rect2(324, 58, 8, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fbdgr")
+
+[node name="detection" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("1_fbdgr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection"]
+z_index = 14
+shape = SubResource("CircleShape2D_adn01")
+
+[connection signal="body_entered" from="detection" to="detection" method="_on_body_entered"]

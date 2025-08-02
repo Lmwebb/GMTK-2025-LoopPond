@@ -29,9 +29,17 @@ text = "Extra Seconds Next Round : 00"
 [node name="Death" type="Label" parent="."]
 offset_left = 512.0
 offset_top = 320.0
-offset_right = 644.0
-offset_bottom = 371.0
+offset_right = 640.0
+offset_bottom = 376.0
 theme_override_fonts/font = ExtResource("1_3eduw")
 theme_override_font_sizes/font_size = 64
+
+[node name="Looping" type="RichTextLabel" parent="."]
+offset_left = 816.0
+offset_right = 1136.0
+offset_bottom = 64.0
+bbcode_enabled = true
+text = "
+"
 
 [connection signal="timeout" from="Timer" to="Label" method="_on_timer_timeout"]
