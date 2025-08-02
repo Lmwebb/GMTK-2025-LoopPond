@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var checkpoint: Area2D = get_node("/root/Game/checkpoint")
 
+@onready var checkpoint: Area2D = get_node("/root/Game/Checkpoint/checkpoint")
+@onready var checkpoint2: Area2D = get_node("/root/Game/Checkpoint/checkpoint2")
+@onready var checkpoint3: Area2D = get_node("/root/Game/Checkpoint/checkpoint3")
 
+@onready var player: CharacterBody2D = $"."
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -280.0
@@ -17,8 +20,13 @@ func _ready():
 	initial_position = position
 
 func _reset_player():
+	
 	if GlobalTimer.checkpoint:
 		position = checkpoint.position
+	elif GlobalTimer.checkpoint2:
+		position = checkpoint2.position
+	elif GlobalTimer.checkpoint3:
+		position = checkpoint3.position
 	else:
 		position = initial_position
 
