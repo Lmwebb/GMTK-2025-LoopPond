@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bornji0uul5dc"]
+[gd_scene load_steps=11 format=3 uid="uid://crkv3ruqxijki"]
 
 [ext_resource type="Texture2D" uid="uid://6tt85e1ypnds" path="res://assets/character_pack/spritesheets/default/idle32x32.png" id="1_a2qlh"]
 [ext_resource type="Script" uid="uid://cf4ffw4f7q0sa" path="res://scripts/shooter.gd" id="1_yjy7u"]
@@ -65,9 +65,8 @@ shape = SubResource("RectangleShape2D_opf31")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_y75o7")
-animation = &"idleleft"
-autoplay = "idleleft"
-frame_progress = 0.347291
+animation = &"idleright"
+autoplay = "idleright"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5, -9)

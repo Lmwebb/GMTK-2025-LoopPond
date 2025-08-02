@@ -11,7 +11,7 @@ func _ready():
 	
 func shoot():
 	var instance = projectile.instantiate()
-	instance.dir = 90
+	instance.dir = -89.4
 	instance.spawnPos = global_position
 	instance.spawnRot = rotation
 	
