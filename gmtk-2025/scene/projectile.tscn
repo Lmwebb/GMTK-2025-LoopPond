@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxxl4srdlxhha"]
+[gd_scene load_steps=6 format=3 uid="uid://bwcuwjn5jre43"]
 
 [ext_resource type="Script" uid="uid://chtgxv06ysm7f" path="res://scripts/projectile.gd" id="1_u6xv6"]
 [ext_resource type="Texture2D" uid="uid://ckhxs6u3wfq4x" path="res://assets/cave/tileset16x16.png" id="2_c0tm2"]
@@ -27,7 +27,7 @@ region_rect = Rect2(292, 92, 7, 4)
 shape = SubResource("RectangleShape2D_ujo14")
 
 [node name="Life" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 4.0
 autostart = true
 
 [connection signal="timeout" from="Life" to="." method="_on_life_timeout"]
