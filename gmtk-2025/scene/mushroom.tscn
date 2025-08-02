@@ -6,8 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbdgr"]
 size = Vector2(8, 6)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_adn01"]
-radius = 5.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fbdgr"]
+radius = 3.99951
+height = 12.0
 
 [node name="mushroom" type="StaticBody2D"]
 collision_mask = 2
@@ -26,6 +27,7 @@ script = ExtResource("1_fbdgr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection"]
 z_index = 14
-shape = SubResource("CircleShape2D_adn01")
+rotation = -1.55509
+shape = SubResource("CapsuleShape2D_fbdgr")
 
 [connection signal="body_entered" from="detection" to="detection" method="_on_body_entered"]

@@ -31,6 +31,7 @@ func _reset_player():
 		position = initial_position
 
 func _player_bounce(delta: float) -> void:
+	glide_state = false
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta

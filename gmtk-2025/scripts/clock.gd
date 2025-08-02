@@ -5,7 +5,7 @@ extends Node
 @onready var timer: Timer = $"../Timer"
 @onready var player: CharacterBody2D = get_node("/root/Game/Player")
 @onready var death: Label = $"../Death"
-@onready var looping: RichTextLabel = $"../Looping"
+@onready var looping: Label = $"../Looping"
 
 var time = 10
 var seconds = 10
@@ -27,8 +27,14 @@ func _process(delta):
 func show_looping():
 	var msec = fmod(timer.time_left, 1) * 1000
 	var loop_string = "Looping in : %02d : %02d" % [timer.time_left, msec]
+	
+	if fmod(timer.time_left, 1) < 0.5:
+		looping.visible = true
+	else:
+		looping.visible = false
+		
 	if timer.time_left <= 5.0:
-		return "[pulse freq=1.0]%s[/pulse]" % loop_string 
+		return loop_string 
 	else:  
 		return ""
 	

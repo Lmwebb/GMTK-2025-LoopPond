@@ -34,11 +34,13 @@ offset_bottom = 376.0
 theme_override_fonts/font = ExtResource("1_3eduw")
 theme_override_font_sizes/font_size = 64
 
-[node name="Looping" type="RichTextLabel" parent="."]
+[node name="Looping" type="Label" parent="."]
 offset_left = 816.0
 offset_right = 1136.0
 offset_bottom = 64.0
-bbcode_enabled = true
+theme_override_colors/font_color = Color(0.940362, 5.34251e-06, 3.85046e-07, 1)
+theme_override_fonts/font = ExtResource("1_3eduw")
+theme_override_font_sizes/font_size = 64
 text = "
 "
 
