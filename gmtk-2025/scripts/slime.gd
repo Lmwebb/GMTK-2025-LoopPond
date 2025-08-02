@@ -9,6 +9,7 @@ var direction = -1
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var player: CharacterBody2D = get_node("/root/Game/Player")
 @onready var killzone: Area2D = $Killzone
+@onready var killzone_collison: CollisionShape2D = $Killzone/killzoneCollison
 
 func _process(delta):
 	
@@ -23,7 +24,8 @@ func _process(delta):
 	
 func _on_body_entered(body: Node2D) -> void:
 	
-	$Killzone/CollisionShape2D.disabled = true
+	var kz = get_node("Killzone") as Area2D
+	kz.monitoring = false 
 	player._player_bounce(0, -300.0)
 	animated_sprite.play("death")
 	await animated_sprite.animation_finished

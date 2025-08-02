@@ -81,12 +81,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkhhu"]
-size = Vector2(18, 6)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wkhhu"]
+radius = 3.01534
+height = 12.0
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_wkhhu"]
-a = Vector2(-7, 0)
-b = Vector2(8, 0)
+a = Vector2(-11, 0)
+b = Vector2(11, 0)
 
 [node name="Slime" type="Area2D"]
 collision_mask = 2
@@ -99,9 +100,10 @@ autoplay = "walk"
 
 [node name="Killzone" parent="." instance=ExtResource("2_p3a6y")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, 3)
-shape = SubResource("RectangleShape2D_wkhhu")
+[node name="killzoneCollison" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, 2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wkhhu")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 target_position = Vector2(11, 0)
@@ -110,7 +112,7 @@ target_position = Vector2(11, 0)
 target_position = Vector2(-9, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5)
+position = Vector2(0, -6)
 shape = SubResource("SegmentShape2D_wkhhu")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

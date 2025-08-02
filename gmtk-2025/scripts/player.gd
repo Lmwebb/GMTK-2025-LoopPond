@@ -13,7 +13,6 @@ const JUMP_VELOCITY = -280.0
 const BOUNCE_VELOCITY = -500.0
 
 var glide_fall = 50
-var glide_state = false
 var initial_position: Vector2
 
 func _ready():
@@ -31,7 +30,7 @@ func _reset_player():
 		position = initial_position
 
 func _player_bounce(delta: float, bounce: float) -> void:
-	glide_state = false
+	GlobalTimer.glide_state = false
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -52,11 +51,11 @@ func _physics_process(delta: float) -> void:
 		
 	# Controls glide
 	if Input.is_action_just_pressed("glide") and velocity.y > 0:
-		glide_state = true
+		GlobalTimer.glide_state = true
 	elif is_on_floor():
-		glide_state = false
+		GlobalTimer.glide_state = false
 		
-	if glide_state == true:
+	if GlobalTimer.glide_state == true:
 		velocity.y = glide_fall
 		
 	# flip sprite
@@ -77,7 +76,7 @@ func _physics_process(delta: float) -> void:
 		
 	# Apply movement
 	if direction:
-		if glide_state:
+		if GlobalTimer.glide_state:
 			velocity.x = direction * (SPEED/2)
 		else:
 			velocity.x = direction * SPEED
