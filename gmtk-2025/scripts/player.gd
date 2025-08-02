@@ -30,13 +30,13 @@ func _reset_player():
 	else:
 		position = initial_position
 
-func _player_bounce(delta: float) -> void:
+func _player_bounce(delta: float, bounce: float) -> void:
 	glide_state = false
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	velocity.y = BOUNCE_VELOCITY
+	velocity.y = bounce
 	
 func _physics_process(delta: float) -> void:
 	

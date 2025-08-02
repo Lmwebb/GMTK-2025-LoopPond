@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxxl4srdlxhha"]
+
+[ext_resource type="Script" uid="uid://chtgxv06ysm7f" path="res://scripts/projectile.gd" id="1_u6xv6"]
+[ext_resource type="Texture2D" uid="uid://ckhxs6u3wfq4x" path="res://assets/cave/tileset16x16.png" id="2_c0tm2"]
+[ext_resource type="PackedScene" uid="uid://bkbyjtu1lwjrn" path="res://scene/killzone.tscn" id="2_ujo14"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gaw4a"]
+size = Vector2(7, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujo14"]
+size = Vector2(7, 4)
+
+[node name="projectile" type="CharacterBody2D"]
+script = ExtResource("1_u6xv6")
+
+[node name="Killzone" parent="." instance=ExtResource("2_ujo14")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("RectangleShape2D_gaw4a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_c0tm2")
+region_enabled = true
+region_rect = Rect2(292, 92, 7, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ujo14")
+
+[node name="Life" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Life" to="." method="_on_life_timeout"]
