@@ -10,3 +10,4 @@ var loop = false
 var glide_state = false
 var ending = false
 var respawn_position: Vector2 = Vector2.ZERO
+var start_position: Vector2 = Vector2.ZERO

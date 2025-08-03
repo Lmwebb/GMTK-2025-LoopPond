@@ -55,6 +55,7 @@ func _physics_process(delta: float) -> void:
 		jumpsound.play()
 		velocity.y = JUMP_VELOCITY
 		
+		
 	# Controls glide
 	if Input.is_action_just_pressed("glide") and velocity.y > 0:
 		GlobalTimer.glide_state = true
