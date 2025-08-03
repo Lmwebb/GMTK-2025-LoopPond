@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bkbyjtu1lwjrn" path="res://scene/killzone.tscn" id="2_ujo14"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gaw4a"]
-size = Vector2(7, 4)
+size = Vector2(8, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujo14"]
 size = Vector2(7, 4)
