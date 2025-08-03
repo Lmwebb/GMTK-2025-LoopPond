@@ -19,7 +19,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vi0yg"]
-size = Vector2(15, 7)
+size = Vector2(15, 5)
 
 [node name="Spike" type="Area2D"]
 collision_mask = 2
@@ -32,5 +32,5 @@ animation = &"Spike"
 [node name="Killzone" parent="." instance=ExtResource("2_dlj5e")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(-0.5, -3.5)
+position = Vector2(-0.5, -2.5)
 shape = SubResource("RectangleShape2D_vi0yg")
