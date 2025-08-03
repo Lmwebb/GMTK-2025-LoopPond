@@ -1286,6 +1286,15 @@ offset_bottom = -310.0
 theme_override_fonts/font = ExtResource("23_pp3pk")
 text = "The blue pads might do something..."
 
+[node name="Label8" type="Label" parent="Labels"]
+offset_left = 571.0
+offset_top = -611.0
+offset_right = 679.0
+offset_bottom = -576.0
+theme_override_fonts/font = ExtResource("23_pp3pk")
+text = "Every migration writes its own map to the clouds"
+autowrap_mode = 2
+
 [node name="rock" parent="." instance=ExtResource("8_355h4")]
 position = Vector2(1447, -1155)
 
