@@ -15,7 +15,7 @@ func _ready():
 	killzone.body_entered.connect(_on_KillZone_body_entered)
 	
 func _on_KillZone_body_entered(_body: Node) -> void:
-	life.stop()
+	life.queue_free()
 	
 	
 func _physics_process(_delta: float) -> void:

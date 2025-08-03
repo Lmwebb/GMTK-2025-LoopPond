@@ -27,7 +27,7 @@ region_rect = Rect2(292, 92, 7, 4)
 shape = SubResource("RectangleShape2D_ujo14")
 
 [node name="Life" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 5.0
 autostart = true
 
 [connection signal="timeout" from="Life" to="." method="_on_life_timeout"]
