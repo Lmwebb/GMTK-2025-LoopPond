@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var checkpoint: Area2D = get_node("/root/Game/Checkpoint/checkpoint")
 @onready var checkpoint2: Area2D = get_node("/root/Game/Checkpoint/checkpoint2")
 @onready var checkpoint3: Area2D = get_node("/root/Game/Checkpoint/checkpoint3")
-
+@onready var jumpsound: AudioStreamPlayer2D = $Jumpsound
 @onready var player: CharacterBody2D = $"."
 
 const SPEED = 100.0
@@ -35,6 +35,7 @@ func _player_bounce(delta: float, bounce: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
+	jumpsound.play()
 	velocity.y = bounce
 	
 func _physics_process(delta: float) -> void:
@@ -47,6 +48,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		jumpsound.play()
 		velocity.y = JUMP_VELOCITY
 		
 	# Controls glide

@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://cwe8vsy5x3jgr"]
+[gd_scene load_steps=18 format=3 uid="uid://cwe8vsy5x3jgr"]
 
 [ext_resource type="Texture2D" uid="uid://notj3ycoqqep" path="res://assets/slime/spritesheets/walk32x32.png" id="1_08lxr"]
 [ext_resource type="Script" uid="uid://b6lktkul247kn" path="res://scripts/slime.gd" id="1_p3a6y"]
 [ext_resource type="PackedScene" uid="uid://bkbyjtu1lwjrn" path="res://scene/killzone.tscn" id="2_p3a6y"]
 [ext_resource type="Texture2D" uid="uid://op3rnf0dlk1b" path="res://assets/slime/spritesheets/death32x32.png" id="2_wkhhu"]
+[ext_resource type="AudioStream" uid="uid://6p4npbq8f1t3" path="res://assets/music/retro_game_sound_effects_-_all_sounds/SoundEnemyDeath.wav" id="5_q8ldp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oa5pk"]
 atlas = ExtResource("2_wkhhu")
@@ -116,5 +117,9 @@ target_position = Vector2(-9, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)
 shape = SubResource("SegmentShape2D_wkhhu")
+
+[node name="Deathsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_q8ldp")
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

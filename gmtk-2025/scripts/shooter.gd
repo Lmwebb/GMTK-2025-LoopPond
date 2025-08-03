@@ -4,6 +4,7 @@ extends Area2D
 @onready var projectile = load("res://scene/projectile.tscn")
 @onready var timer: Timer = $Timer
 @onready var player: CharacterBody2D = get_node("/root/Game/Player")
+@onready var deathsound: AudioStreamPlayer2D = $Deathsound
 
 
 func _ready():
@@ -24,4 +25,6 @@ func _on_timer_timeout() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	
 	player._player_bounce(0, -300.0)
+	deathsound.play()
+	await deathsound.finished
 	queue_free()
