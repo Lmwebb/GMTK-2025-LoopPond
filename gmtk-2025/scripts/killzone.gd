@@ -2,10 +2,8 @@ extends Area2D
 
 @onready var timer: Timer = $Timer
 @onready var deathsounds: AudioStreamPlayer2D = $Deathsounds
-@onready var life: Timer = $"../Life"
 
 func _on_body_entered(body: Node2D) -> void:
-	life.stop
 	GlobalTimer.death = true
 	GlobalTimer.glide_state = false
 	GlobalTimer.timer = 0
