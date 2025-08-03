@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjdbonudyhigl"]
+
+[ext_resource type="Texture2D" uid="uid://hbhcpxxg6y04" path="res://assets/tileset/tileset16x16.png" id="1_05agg"]
+[ext_resource type="Script" uid="uid://die0rf1k7anw1" path="res://scripts/rock.gd" id="1_o08jy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o08jy"]
+size = Vector2(12, 5)
+
+[node name="rock" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_o08jy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_05agg")
+region_enabled = true
+region_rect = Rect2(97, 59, 12, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_o08jy")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

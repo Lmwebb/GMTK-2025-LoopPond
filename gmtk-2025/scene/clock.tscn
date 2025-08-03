@@ -34,6 +34,14 @@ offset_bottom = 376.0
 theme_override_fonts/font = ExtResource("1_3eduw")
 theme_override_font_sizes/font_size = 64
 
+[node name="End" type="Label" parent="."]
+offset_left = 512.0
+offset_top = 320.0
+offset_right = 640.0
+offset_bottom = 376.0
+theme_override_fonts/font = ExtResource("1_3eduw")
+theme_override_font_sizes/font_size = 64
+
 [node name="Looping" type="Label" parent="."]
 offset_left = 816.0
 offset_right = 1136.0

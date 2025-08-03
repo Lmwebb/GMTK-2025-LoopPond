@@ -6,6 +6,7 @@ extends Node
 @onready var player: CharacterBody2D = get_node("/root/Game/Player")
 @onready var death: Label = $"../Death"
 @onready var looping: Label = $"../Looping"
+@onready var end: Label = $"../End"
 
 var time = 10
 var seconds = 10
@@ -29,6 +30,9 @@ func _process(_delta):
 		_ready()
 		player._reset_player()
 	
+	if GlobalTimer.ending:
+		show_ending()
+	
 func show_looping():
 	var msec = fmod(timer.time_left, 1) * 1000
 	var loop_string = "Looping in : %02d : %02d" % [timer.time_left, msec]
@@ -49,6 +53,10 @@ func show_death():
 		return "You Died!"
 	else:
 		return ""
+
+func show_ending():
+	end.text = "Looping..."
+	
 	
 func time_to_seconds():
 	seconds = 10 + GlobalTimer.timer
