@@ -5,6 +5,7 @@ extends Area2D
 @onready var timer: Timer = $Timer
 @onready var player: CharacterBody2D = get_node("/root/Game/Player")
 @onready var deathsound: AudioStreamPlayer2D = $Deathsound
+@onready var projectilesound: AudioStreamPlayer2D = $ProjectileSound
 
 
 func _ready():

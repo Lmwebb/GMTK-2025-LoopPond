@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5u5ql7cio8r1"]
+
+[ext_resource type="Texture2D" uid="uid://hbhcpxxg6y04" path="res://assets/tileset/tileset16x16.png" id="1_dcgk5"]
+
+[node name="tree" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dcgk5")
+region_enabled = true
+region_rect = Rect2(66, 23, 28, 25)
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -8)
+polygon = PackedVector2Array(-14, 4, -13, 0, -12, -1, -11, -2, -10, -3, -9, -4, -5, -5, 5, -5, 9, -4, 10, -3, 11, -2, 12, -1, 13, 0, 14, 4, 0, 1)
+one_way_collision = true

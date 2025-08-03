@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://crkv3ruqxijki"]
+[gd_scene load_steps=13 format=3 uid="uid://crkv3ruqxijki"]
 
 [ext_resource type="Texture2D" uid="uid://6tt85e1ypnds" path="res://assets/character_pack/spritesheets/default/idle32x32.png" id="1_a2qlh"]
 [ext_resource type="Script" uid="uid://cf4ffw4f7q0sa" path="res://scripts/shooter.gd" id="1_yjy7u"]
 [ext_resource type="PackedScene" uid="uid://bkbyjtu1lwjrn" path="res://scene/killzone.tscn" id="2_y7cvv"]
 [ext_resource type="AudioStream" uid="uid://6p4npbq8f1t3" path="res://assets/music/retro_game_sound_effects_-_all_sounds/SoundEnemyDeath.wav" id="4_opf31"]
+[ext_resource type="AudioStream" uid="uid://bm0krskhofp0y" path="res://assets/music/retro_game_sound_effects_-_all_sounds/SoundSwim.wav" id="5_2jimq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_opf31"]
 size = Vector2(14, 12)
@@ -78,6 +79,9 @@ autostart = true
 
 [node name="Deathsound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_opf31")
+
+[node name="ProjectileSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_2jimq")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -120,6 +120,6 @@ shape = SubResource("SegmentShape2D_wkhhu")
 
 [node name="Deathsound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_q8ldp")
-bus = &"SFX"
+bus = &"Slime"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
