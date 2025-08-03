@@ -54,13 +54,14 @@ text = "
 
 [node name="LoopButton" type="Label" parent="."]
 offset_left = 24.0
-offset_top = 536.0
+offset_top = 512.0
 offset_right = 296.0
-offset_bottom = 632.0
+offset_bottom = 625.0
 theme_override_fonts/font = ExtResource("1_3eduw")
 theme_override_font_sizes/font_size = 32
 text = "Press L to Loop
 Press R to Restart
-Press Q to Zoom out"
+Press Q to Zoom out
+Press Space to Glide"
 
 [connection signal="timeout" from="Timer" to="Label" method="_on_timer_timeout"]
