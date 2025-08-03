@@ -1,9 +1,9 @@
-[gd_scene load_steps=37 format=4 uid="uid://dtwck61s1f864"]
+[gd_scene load_steps=38 format=4 uid="uid://dtwck61s1f864"]
 
 [ext_resource type="Texture2D" uid="uid://hbhcpxxg6y04" path="res://assets/tileset/tileset16x16.png" id="1_5kiuu"]
 [ext_resource type="PackedScene" uid="uid://cqvkkqw7wvci4" path="res://scene/clock.tscn" id="1_17rxn"]
 [ext_resource type="Texture2D" uid="uid://ckhxs6u3wfq4x" path="res://assets/cave/tileset16x16.png" id="1_33cqm"]
-[ext_resource type="Script" path="res://scripts/game.gd" id="1_ym5sv"]
+[ext_resource type="Script" uid="uid://b4a2bwpfagmrn" path="res://scripts/game.gd" id="1_ym5sv"]
 [ext_resource type="PackedScene" uid="uid://c075t1qmk0a7l" path="res://scene/player.tscn" id="2_dbls1"]
 [ext_resource type="PackedScene" uid="uid://crwpv1th0dlbv" path="res://scene/coin.tscn" id="3_p1ry8"]
 [ext_resource type="PackedScene" uid="uid://7jiw2mmhektb" path="res://scene/fire.tscn" id="3_qpk70"]
@@ -13,12 +13,13 @@
 [ext_resource type="PackedScene" uid="uid://c7hhxyxa1pcsv" path="res://scene/spike.tscn" id="5_ll5lq"]
 [ext_resource type="Texture2D" uid="uid://bdcqf1byt43u4" path="res://assets/cave/16x16 fire stair.png" id="6_5g16k"]
 [ext_resource type="PackedScene" uid="uid://cwe8vsy5x3jgr" path="res://scene/slime.tscn" id="7_i6gbm"]
-[ext_resource type="PackedScene" path="res://scene/platform.tscn" id="12_sng2h"]
+[ext_resource type="Script" uid="uid://mh5t525fypf8" path="res://scripts/camera.gd" id="9_jhlss"]
+[ext_resource type="PackedScene" uid="uid://c43opnoxf3sk2" path="res://scene/platform.tscn" id="12_sng2h"]
 [ext_resource type="PackedScene" uid="uid://b4c2v40f5j2fn" path="res://scene/checkpoint.tscn" id="13_5g16k"]
 [ext_resource type="PackedScene" uid="uid://cegev3bjlu5ma" path="res://scene/mushroom.tscn" id="14_ve786"]
 [ext_resource type="Script" uid="uid://bwnm6c8a7qupn" path="res://scripts/checkpoint.gd" id="15_0lu6w"]
 [ext_resource type="PackedScene" uid="uid://crkv3ruqxijki" path="res://scene/shooter.tscn" id="18_ux4dc"]
-[ext_resource type="PackedScene" path="res://scene/key.tscn" id="19_jrd6n"]
+[ext_resource type="PackedScene" uid="uid://budo0acf14n01" path="res://scene/key.tscn" id="19_jrd6n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xwcet"]
 texture = ExtResource("1_33cqm")
@@ -378,6 +379,21 @@ _data = {
 &"platform": SubResource("Animation_sng2h")
 }
 
+[sub_resource type="Animation" id="Animation_i6gbm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1031, -327)]
+}
+
 [sub_resource type="Animation" id="Animation_0lu6w"]
 resource_name = "new_animation"
 length = 12.0
@@ -395,7 +411,13 @@ tracks/0/keys = {
 "values": [Vector2(1031, -327), Vector2(66, -327)]
 }
 
-[sub_resource type="Animation" id="Animation_i6gbm"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ux4dc"]
+_data = {
+&"RESET": SubResource("Animation_i6gbm"),
+&"new_animation": SubResource("Animation_0lu6w")
+}
+
+[sub_resource type="Animation" id="Animation_jhlss"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -407,13 +429,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1031, -327)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ux4dc"]
-_data = {
-&"RESET": SubResource("Animation_i6gbm"),
-&"new_animation": SubResource("Animation_0lu6w")
+"values": [Vector2(384, -296)]
 }
 
 [sub_resource type="Animation" id="Animation_jrd6n"]
@@ -431,21 +447,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(552, -304), Vector2(216, -304), Vector2(216, -104), Vector2(552, -104)]
-}
-
-[sub_resource type="Animation" id="Animation_jhlss"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(384, -296)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ww6yf"]
@@ -523,6 +524,7 @@ process_callback = 0
 limit_bottom = 65
 limit_smoothed = true
 position_smoothing_enabled = true
+script = ExtResource("9_jhlss")
 
 [node name="Killzone" parent="." instance=ExtResource("4_xwcet")]
 

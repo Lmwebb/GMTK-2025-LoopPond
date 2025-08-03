@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dj2iyjk37k64b"
+path="res://.godot/imported/Bouncy edited.mp3-cf0303dd5ce9fb0711b54af2f0a59908.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Bouncy edited.mp3"
+dest_files=["res://.godot/imported/Bouncy edited.mp3-cf0303dd5ce9fb0711b54af2f0a59908.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
