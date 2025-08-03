@@ -15,4 +15,7 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_timer_timeout() -> void:
 	Engine.time_scale = 1
 	GlobalTimer.death = false
+	GlobalTimer.checkpoint = false
+	GlobalTimer.checkpoint2 = false
+	GlobalTimer.checkpoint3 = false
 	get_tree().reload_current_scene()

@@ -18,11 +18,17 @@ func _ready() -> void:
 	GlobalTimer.timer = 0
 	timer.start()
 	
+	
 func _process(delta):
 	label.text = time_to_string()
 	extra_time.text = time_to_seconds()
 	death.text = show_death()
 	looping.text = show_looping()
+	
+	if Input.is_action_just_pressed("loop"):
+		seconds = 0
+		_ready()
+		player._reset_player()
 	
 func show_looping():
 	var msec = fmod(timer.time_left, 1) * 1000
