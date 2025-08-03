@@ -6,6 +6,7 @@ extends Area2D
 func _on_body_entered(body: Node2D) -> void:
 	GlobalTimer.death = true
 	GlobalTimer.glide_state = false
+	GlobalTimer.timer = 0
 	Engine.time_scale = 0.5
 	deathsounds.play()
 	body.get_node("CollisionShape2D").queue_free()
