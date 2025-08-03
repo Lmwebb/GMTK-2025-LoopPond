@@ -21,7 +21,7 @@ func _process(delta):
 	
 	position.x += direction * SPEED * delta
 	
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	
 	get_node("Killzone").monitoring = false 
 	player._player_bounce(0, -300.0)

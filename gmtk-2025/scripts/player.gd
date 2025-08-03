@@ -17,7 +17,11 @@ var initial_position: Vector2
 
 func _ready():
 	initial_position = position
-
+	
+	if GlobalTimer.respawn_position != Vector2.ZERO:
+		position = GlobalTimer.respawn_position
+	GlobalTimer.respawn_position = Vector2.ZERO
+	
 func _reset_player():
 	
 	if GlobalTimer.checkpoint:

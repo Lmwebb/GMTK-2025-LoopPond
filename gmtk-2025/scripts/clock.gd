@@ -9,7 +9,6 @@ extends Node
 
 var time = 10
 var seconds = 10
-signal timer_done()
 
 func _ready() -> void:
 	GlobalTimer.timer += 10
@@ -19,7 +18,7 @@ func _ready() -> void:
 	timer.start()
 	
 	
-func _process(delta):
+func _process(_delta):
 	label.text = time_to_string()
 	extra_time.text = time_to_seconds()
 	death.text = show_death()

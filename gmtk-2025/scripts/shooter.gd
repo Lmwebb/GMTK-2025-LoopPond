@@ -23,7 +23,7 @@ func _on_timer_timeout() -> void:
 	_ready()
 	
 	
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	
 	player._player_bounce(0, -300.0)
 	deathsound.play()

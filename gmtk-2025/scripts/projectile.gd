@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var killzone: CharacterBody2D = $"."
+@onready var killzone: Area2D = $Killzone
 @export var SPEED = 100
 @onready var life: Timer = $Life
 
@@ -12,13 +12,13 @@ func _ready():
 	global_position = spawnPos
 	global_rotation = spawnRot
 	
-	killzone.connect("body_entered", Callable(self, "_on_KillZone_body_entered"))
+	killzone.body_entered.connect(_on_KillZone_body_entered)
 	
-func _on_KillZone_body_entered(body: Node) -> void:
-	life.stop
+func _on_KillZone_body_entered(_body: Node) -> void:
+	life.stop()
 	
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	velocity = Vector2(0, -SPEED).rotated(dir)
 	move_and_slide()
 

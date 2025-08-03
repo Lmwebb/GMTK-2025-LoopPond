@@ -2,6 +2,10 @@ extends Area2D
 
 @onready var timer: Timer = $Timer
 @onready var deathsounds: AudioStreamPlayer2D = $Deathsounds
+@onready var player: CharacterBody2D = get_node("/root/Game/Player")
+@onready var checkpoint: Area2D = get_node("/root/Game/Checkpoint/checkpoint")
+@onready var checkpoint2: Area2D = get_node("/root/Game/Checkpoint/checkpoint2")
+@onready var checkpoint3: Area2D = get_node("/root/Game/Checkpoint/checkpoint3")
 
 func _on_body_entered(body: Node2D) -> void:
 	GlobalTimer.death = true
@@ -15,7 +19,12 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_timer_timeout() -> void:
 	Engine.time_scale = 1
 	GlobalTimer.death = false
-	GlobalTimer.checkpoint = false
-	GlobalTimer.checkpoint2 = false
-	GlobalTimer.checkpoint3 = false
+	
+	if GlobalTimer.checkpoint:
+		GlobalTimer.respawn_position = checkpoint.position
+	elif GlobalTimer.checkpoint2:
+		GlobalTimer.respawn_position = checkpoint2.position
+	elif GlobalTimer.checkpoint3:
+		GlobalTimer.respawn_position = checkpoint3.position
+		
 	get_tree().reload_current_scene()
