@@ -98,3 +98,7 @@ shape = SubResource("CircleShape2D_s4jxa")
 
 [node name="Jumpsound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_fvtld")
+
+[node name="CoyoteTime" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true

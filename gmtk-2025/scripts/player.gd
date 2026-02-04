@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var checkpoint3: Area2D = get_node("/root/Game/Checkpoint/checkpoint3")
 @onready var jumpsound: AudioStreamPlayer2D = $Jumpsound
 @onready var player: CharacterBody2D = $"."
+@onready var coyote_time: Timer = $CoyoteTime
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -280.0
@@ -14,6 +15,8 @@ const BOUNCE_VELOCITY = -500.0
 
 var glide_fall = 50
 var initial_position: Vector2
+
+var was_on_floor := false
 
 func _ready():
 	initial_position = position
@@ -45,16 +48,21 @@ func _player_bounce(delta: float, bounce: float) -> void:
 func _physics_process(delta: float) -> void:
 	
 	var direction := Input.get_axis("move_left", "move_right")
+	var on_floor := is_on_floor()	
 	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+		
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or not coyote_time.is_stopped()):
 		jumpsound.play()
 		velocity.y = JUMP_VELOCITY
-		
+	
+	# Handle Coyote Timer
+	if was_on_floor and not on_floor:
+		coyote_time.start()
+		print("🐦 Coyote START", Time.get_ticks_msec())
 		
 	# Controls glide
 	if Input.is_action_just_pressed("glide") and velocity.y > 0:
@@ -91,3 +99,5 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	move_and_slide()
+	
+	was_on_floor = on_floor
