@@ -12,6 +12,9 @@ The game runs right in your web browser. No download needed.
 
 **https://lmwebb.itch.io/looppond-web**
 
+> [!NOTE]
+> The itch.io version is the original Game Jam build and doesn't include later updates made in this repository.
+
 ---
 
 ## 👥 Credits
